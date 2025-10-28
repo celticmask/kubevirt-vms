@@ -1,0 +1,44 @@
+apiVersion: kubevirt.io/v1
+kind: VirtualMachine
+metadata:
+  name: {{ .Release.Name }}
+  labels:
+    {{- include "vm-windows.labels" . | nindent 4 }}
+spec:
+  runStrategy: Always
+  template:
+    metadata:
+      labels:
+        {{- include "vm-windows.labels" . | nindent 8 }}
+    spec:
+      domain:
+        resources:
+          requests:
+            memory: {{ .Values.resources.requests.memory }}
+            cpu: {{ .Values.resources.requests.cpu }}
+        devices:
+          disks:
+            - name: iso
+              cdrom:
+                bus: sata
+              bootOrder: 2
+            - name: virtio-drivers
+              cdrom:
+                bus: sata
+                readonly: true
+            {{- range .Values.disks }}
+            {{- end }}
+        machine:
+          type: q35
+      volumes:
+        {{- range .Values.disks }}
+        - name: {{ .name }}
+          persistentVolumeClaim:
+            claimName: {{ $.Release.Name }}-{{ .name }}
+        {{- end }}
+        - name: iso
+          containerDisk:
+            image: "{{ .Values.image.repository }}/{{ .Values.image.name }}:{{ .Values.image.tag }}"
+        - name:  virtio-drivers
+          containerDisk:
+            image: quay.io/kubevirt/virtio-container-disk:v1.5.0-amd64

@@ -1,0 +1,29 @@
+metadata:
+  name: test-ubuntu-vm
+
+image:
+  repository: quay.io/containerdisks
+  name: ubuntu
+  tag: 24.04
+
+resources:
+  requests:
+    memory: 1024Mi
+    cpu: 1
+
+service:
+  type: LoadBalancer
+  port: 3389
+  targetPort: 3389
+  ## The node port (only relevant for type LoadBalancer or NodePort)
+  nodePort:
+  ## The cluster ip address (only relevant for type LoadBalancer or NodePort)
+  clusterIP:
+  ## The loadbalancer ip address (only relevant for type LoadBalancer)
+  loadBalancerIP:
+  ## Annotations to add to the service
+  annotations: {}
+  ## Labels to add to the service
+  labels: {}
+
+disks: []

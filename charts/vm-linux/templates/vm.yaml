@@ -1,0 +1,54 @@
+apiVersion: kubevirt.io/v1
+kind: VirtualMachine
+metadata:
+  name: {{ .Release.Name }}
+  creationTimestamp: null
+  labels:
+    {{- include "vm-linux.labels" . | nindent 4 }}
+spec:
+  runStrategy: Always
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        {{- include "vm-linux.labels" . | nindent 8 }}
+    spec:
+      domain:
+        machine:
+          type: q35
+        resources:
+          requests:
+            memory: {{ .Values.resources.requests.memory }}
+            cpu: {{ .Values.resources.requests.cpu }}
+        devices:
+          disks:
+            - name: containerdisk
+              cdrom:
+                bus: sata
+            - name: cloudinitdisk
+              disk:
+                bus: virtio
+            {{- range .Values.disks }}
+            {{- end }}
+      volumes:
+        {{- range .Values.disks }}
+        - name: {{ .name }}
+          persistentVolumeClaim:
+            claimName: {{ $.Release.Name }}-{{ .name }}
+        {{- end }}
+        - name: containerdisk
+          containerDisk:
+            image: "{{ .Values.image.repository }}/{{ .Values.image.name }}:{{ .Values.image.tag }}"
+        - name: cloudinitdisk
+          cloudInitNoCloud:
+            userData: |
+              #cloud-config
+              hostname: ubuntu2404
+              ssh_pwauth: true
+              disable_root: false
+              chpasswd:
+                list: |
+                  root:myrootpassword
+                  ubuntu:userpassword
+                expire: False
+          

@@ -1,0 +1,26 @@
+image:
+  repository: kubevirt
+  name: fedora-cloud-container-disk-demo
+  tag: latest
+
+resources:
+  requests:
+    memory: 1024Mi
+    cpu: 1
+
+service:
+  type: LoadBalancer
+  port: 22
+  targetPort: 22
+  ## The node port (only relevant for type LoadBalancer or NodePort)
+  nodePort:
+  ## The cluster ip address (only relevant for type LoadBalancer or NodePort)
+  clusterIP:
+  ## The loadbalancer ip address (only relevant for type LoadBalancer)
+  loadBalancerIP:
+  ## Annotations to add to the service
+  annotations: {}
+  ## Labels to add to the service
+  labels: {}
+
+disks: []

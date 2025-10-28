@@ -1,0 +1,2 @@
+FROM scratch
+ADD SW_DVD9_Win_Server_STD_CORE_2022_2108.40_64Bit_English_DC_STD_MLF_X23-92143.iso /disk/
