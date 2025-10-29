@@ -1,0 +1,23 @@
+apiVersion: v1
+entries:
+  vm-linux:
+  - apiVersion: v1
+    appVersion: "1.0"
+    created: "2025-10-29T18:01:25.164850813Z"
+    description: A Helm chart for KubeVirt which deploys single Linux vm
+    digest: 673fcd60286a0bf200e5ba13d9a60bcb87c3cc9f496c960c12ec9bbac563f77d
+    name: vm-linux
+    urls:
+    - vm-linux-0.1.26.tgz
+    version: 0.1.26
+  vm-windows:
+  - apiVersion: v1
+    appVersion: "1.0"
+    created: "2025-10-29T18:01:25.308670104Z"
+    description: A Helm chart for KubeVirt which deploys single Windows vm
+    digest: a57003e84226a19d7dc77ca42209e04fa8224cfbd09edf1379861d7f00cb3864
+    name: vm-windows
+    urls:
+    - vm-windows-0.1.19.tgz
+    version: 0.1.19
+generated: "2025-10-29T18:01:25.308674743Z"
