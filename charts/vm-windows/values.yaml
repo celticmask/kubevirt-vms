@@ -1,6 +1,6 @@
 image:
   repository: kubevirt
-  name: fedora-cloud-container-disk-demo
+  name: ubuntu
   tag: latest
 
 resources:
@@ -9,7 +9,7 @@ resources:
     cpu: 1
 
 service:
-  type: LoadBalancer
+  type: ClusterIP
   port: 22
   targetPort: 22
   ## The node port (only relevant for type LoadBalancer or NodePort)
