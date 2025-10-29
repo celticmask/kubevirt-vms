@@ -25,6 +25,7 @@ spec:
             - name: containerdisk
               cdrom:
                 bus: sata
+              bootOrder: 2  
             - name: cloudinitdisk
               disk:
                 bus: virtio
