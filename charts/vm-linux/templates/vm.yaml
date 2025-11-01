@@ -26,9 +26,6 @@ spec:
               cdrom:
                 bus: sata
               bootOrder: 2  
-            - name: cloudinitdisk
-              disk:
-                bus: virtio
             {{- range .Values.disks }}
             {{- end }}
       volumes:
@@ -40,16 +37,3 @@ spec:
         - name: containerdisk
           containerDisk:
             image: "{{ .Values.image.repository }}/{{ .Values.image.name }}:{{ .Values.image.tag }}"
-        - name: cloudinitdisk
-          cloudInitNoCloud:
-            userData: |
-              #cloud-config
-              hostname: ubuntu2404
-              ssh_pwauth: true
-              disable_root: false
-              chpasswd:
-                list: |
-                  root:myrootpassword
-                  ubuntu:userpassword
-                expire: False
-          
