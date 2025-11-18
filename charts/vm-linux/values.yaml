@@ -24,21 +24,3 @@ service:
   labels: {}
 
 disks: []
-
-# 1C Enterprise specific
-server:
-  ports:
-    # Client connection ports
-    workProccesStartPort: 1560
-    workProccesEndPort: 1591
-
-    # Cluster manager port
-    clusterManagerPort: 1541
-
-    # Server agent port (optional in case single cluster server)
-    serveragent: 1540
-
-    # RAS port
-    rasPort: 1545
-
-
