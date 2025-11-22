@@ -33,7 +33,7 @@ spec:
             {{- range .Values.disks }}
             {{- end }}
         machine:
-          type: q35
+          type: {{ .Values.type }}
       volumes:
         {{- range .Values.disks }}
         - name: {{ .name }}
@@ -45,4 +45,4 @@ spec:
             image: "{{ .Values.image.repository }}/{{ .Values.image.name }}:{{ .Values.image.tag }}"
         - name:  virtio-drivers
           containerDisk:
-            image: quay.io/kubevirt/virtio-container-disk:v1.5.0-amd64
+            image: quay.io/kubevirt/virtio-container-disk:v1.6.3-amd64
