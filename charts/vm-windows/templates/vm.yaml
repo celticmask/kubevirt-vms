@@ -10,6 +10,9 @@ spec:
     metadata:
       labels:
         {{- include "vm-windows.labels" . | nindent 8 }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}      
     spec:
       domain:
         resources:
