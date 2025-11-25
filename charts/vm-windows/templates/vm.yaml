@@ -31,6 +31,7 @@ spec:
                 bus: sata
                 readonly: true
             {{- range .Values.disks }}
+              {{- toYaml . | nindent 14 }}
             {{- end }}
         machine:
           type: {{ .Values.type }}
