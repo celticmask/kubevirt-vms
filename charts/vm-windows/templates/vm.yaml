@@ -30,8 +30,8 @@ spec:
               cdrom:
                 bus: sata
                 readonly: true
-            {{- range .Values.disks }}
-              {{- toYaml . | nindent 14 }}
+            {{- with .Values.disks }}
+              {{- toYaml . | nindent 12 }}
             {{- end }}
         machine:
           type: {{ .Values.type }}
