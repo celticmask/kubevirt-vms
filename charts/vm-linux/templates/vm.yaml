@@ -28,7 +28,8 @@ spec:
               cdrom:
                 bus: sata
               bootOrder: 2  
-            {{- range .Values.disks }}
+            {{- with .Values.disks }}
+              {{- toYaml . | nindent 12 }}
             {{- end }}
       volumes:
         {{- range .Values.disks }}
