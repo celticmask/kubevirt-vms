@@ -47,3 +47,7 @@ spec:
         - name:  virtio-drivers
           containerDisk:
             image: quay.io/kubevirt/virtio-container-disk:v1.6.3-amd64
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}

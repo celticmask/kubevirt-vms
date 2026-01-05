@@ -3,6 +3,9 @@ image:
   name: ubuntu
   tag: latest
 
+## Pull secrets and name override options
+imagePullSecrets: []
+
 resources:
   requests:
     memory: 1024Mi
