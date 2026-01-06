@@ -2,9 +2,7 @@ image:
   repository: kubevirt
   name: ubuntu
   tag: latest
-
-## Pull secrets and name override options
-imagePullSecrets: []
+  imagePullSecret: "" 
 
 resources:
   requests:

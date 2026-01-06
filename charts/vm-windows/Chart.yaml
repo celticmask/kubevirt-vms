@@ -1,4 +1,4 @@
 apiVersion: v2
 description: A Helm chart for KubeVirt which deploys single Windows vm
 name: vm-windows
-version: 0.2.0
+version: 1.0.0

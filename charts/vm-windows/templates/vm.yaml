@@ -44,6 +44,7 @@ spec:
         - name: iso
           containerDisk:
             image: "{{ .Values.image.repository }}/{{ .Values.image.name }}:{{ .Values.image.tag }}"
+            imagePullSecret: {{ .Values.image.imagePullSecret }}
         - name:  virtio-drivers
           containerDisk:
             image: quay.io/kubevirt/virtio-container-disk:v1.6.3-amd64
