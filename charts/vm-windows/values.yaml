@@ -2,7 +2,8 @@ image:
   repository: kubevirt
   name: ubuntu
   tag: latest
-  imagePullSecret: "" 
+
+imagePullSecrets: []
 
 resources:
   requests:
@@ -26,8 +27,8 @@ ingress:
 
 service:
   type: ClusterIP
-  port: 22
-  targetPort: 22
+  port: 3389
+  targetPort: 3389
   ## The node port (only relevant for type LoadBalancer or NodePort)
   nodePort:
   ## The cluster ip address (only relevant for type LoadBalancer or NodePort)
