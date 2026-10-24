@@ -83,6 +83,14 @@ entries:
     version: 0.1.26
   vm-windows:
   - apiVersion: v2
+    created: "2026-10-24T15:26:05.292024164Z"
+    description: A Helm chart for KubeVirt which deploys single Windows vm
+    digest: 760a8b3f08ee52790fda2ce019399379f8cefddf95aeb1b0176823cb1d6307fb
+    name: vm-windows
+    urls:
+    - vm-windows-1.1.1.tgz
+    version: 1.1.1
+  - apiVersion: v2
     created: "2026-02-28T16:09:18.458515563Z"
     description: A Helm chart for KubeVirt which deploys single Windows vm
     digest: 4ac7d40b34b88b686e71a50502fc8508e380766e24ffd122c0b9c6942a3060a1
@@ -160,4 +168,4 @@ entries:
     urls:
     - vm-windows-0.1.19.tgz
     version: 0.1.19
-generated: "2026-02-28T16:09:18.458565646Z"
+generated: "2026-10-24T15:26:05.292085328Z"
