@@ -51,4 +51,4 @@ spec:
             imagePullSecret: {{ .Values.image.imagePullSecret }}
         - name:  virtio-drivers
           containerDisk:
-            image: quay.io/kubevirt/virtio-container-disk
+            image: quay.io/kubevirt/virtio-container-disk:20261024_57c1d5b97d
